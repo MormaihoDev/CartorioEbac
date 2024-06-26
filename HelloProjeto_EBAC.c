@@ -59,6 +59,25 @@ int registrar()
     file = fopen(arquivo, "a");
     fprintf(file,cargo);
     fclose(file);
+    
+    //Encerra o cadastro	
+    
+    printf("\n\nDeseja cadastrar outro usuário?");
+    printf("\t\n\n1-SIM | 2-NãO - Voltar ao menu.\n\n");
+    
+    scanf("%d", &cadastrarnovo);
+    
+    system("cls");
+    
+    if(cadastrarnovo==1)
+    {
+       registrar(); 	
+	}
+	
+	if(cadastrarnovo==2)
+	{
+	   	return 0;
+	}
     	
 }
 
@@ -100,88 +119,88 @@ int consultar()
 int deletar()
 {
 	
-  	int deletarounao=0;
+  int deletarounao=0;
   
-  	char cpf[30];
+  char cpf[30];
   
-  	printf("\\/ EXCLUIR USUÁRIOS DO BANCO DE DADOS \\/\n");
- 	 printf("   ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n\n");
- 	 printf("Digite o CPF do usuário a ser deletado: ");
- 	 scanf("%s",cpf);
+  printf("\\/ EXCLUIR USUÁRIOS DO BANCO DE DADOS \\/\n");
+  printf("   ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n\n");
+  printf("Digite o CPF do usuário a ser deletado: ");
+  scanf("%s",cpf);
   
- 	 FILE *file;
- 	 file = fopen(cpf, "r"); 
+  FILE *file;
+  file = fopen(cpf, "r"); 
   
- 	 if(file)
- 	 {
-   		 printf("*Usuário localizado*\n\n");
-   		 printf("\tATENÇÃO: Tem certeza que deseja excluir o usuário?\n");
-   		 printf("\t       1 - SIM | 2 - NÃO- Retorne ao menu\n");
-    	 printf("\nOPÇÃO: ");
-   		 fclose(file);
+  if(file)
+  {
+    printf("*Usuário localizado*\n\n");
+    printf("\tATENÇÃO: Tem certeza que deseja excluir o usuário?\n");
+    printf("\t       1 - SIM | 2 - NÃO- Retorne ao menu\n");
+    printf("\nOPÇÃO: ");
+    fclose(file);
     
     scanf("%d", &deletarounao);
     
     system("cls");
-  	}
-  	if(deletarounao==1)
-  	{
-  		deletar2();
-  	}
+  }
+  if(deletarounao==1)
+  {
+  	deletar2();
+  }
   
-  	if(deletarounao==2)
-  	{
-  		return 0;
- 	}
+  if(deletarounao==2)
+  {
+  	return 0;
+  }
 
-	if(file == NULL)
-    	printf("\nCPF não localizado -Retorne ao menu\n");
-    	system("pause");
+  if(file == NULL)
+    printf("\nCPF não localizado -Retorne ao menu\n");
+    system("pause");
 }
 
 int deletar2()
 {
-  	char cpf[30];
+  char cpf[30];
 
-  	printf("Confirme o CPF do usuário a ser deletado: ");
-  	scanf("%s",cpf);
+  printf("Confirme o CPF do usuário a ser deletado: ");
+  scanf("%s",cpf);
   
-  	FILE *file;
- 	file = fopen(cpf, "r"); 
+  FILE *file;
+  file = fopen(cpf, "r"); 
   
-  	if(file)
-  	{
- 		printf("Usuário removido com sucesso!\n\n");
- 		fclose(file);
+  if(file)
+  {
+  printf("Usuário removido com sucesso!\n\n");
+  fclose(file);
   	
-  		remove(cpf);
-  	}
-  	if(file == NULL)
- 	 {
- 		 printf("\n\nCPF não localizado -Retorne ao menu\n");	
- 	 }
+  remove(cpf);
+  }
+  if(file == NULL)
+  {
+  printf("\n\nCPF não localizado -Retorne ao menu\n");	
+  }
 }
 
 int confirmasair()
 {
-   	int confirmasair=0;
+   int confirmasair=0;
    
-  	printf("Tem certeza que deseja sair?\n\n");
-  	printf("Aperte 1 - Sair | 2 - Voltar ao Menu");
-  	printf("\n\nOpção: ");
+   printf("Tem certeza que deseja sair?\n\n");
+   printf("Aperte 1 - Sair | 2 - Voltar ao Menu");
+   printf("\n\nOpção: ");
    
    scanf("%d", &confirmasair);
    
    if (confirmasair==1)
    {
-		system("cls");
-   		printf("\n\nSaindo.. Até logo..");
-   		exit (0);
+   	system("cls");
+   	printf("\n\nSaindo.. Até logo..");
+   	exit (0);
    }
    	
    if (confirmasair==2)
    {
-   	    return 0;
+    return 0;
    }
 }
 
@@ -205,6 +224,7 @@ int main() //Função principal do projeto
       printf("1 > Registrar \n");
       printf("2 > Consultar \n");
       printf("3 > Deletar nomes \n\n");
+      printf("4 > Aperte para sair.\n\n\n\n");
       
       printf("Opção: "); //Fim do Menu
    
@@ -225,6 +245,10 @@ int main() //Função principal do projeto
           case 3:
           deletar();
 	      break;	
+		  
+		  case 4:
+		  confirmasair();
+		  break;      
 	   
 	      default:
 	      printf("*Opção inválida; Favor definir uma opção válida no Menu-\n\n");
