@@ -70,14 +70,14 @@ int registrar()
     system("cls");
     
     if(cadastrarnovo==1)
-    {
-       registrar(); 	
-	}
+    	{
+      	registrar(); 	
+		}
 	
 	if(cadastrarnovo==2)
-	{
+		{
 	   	return 0;
-	}
+		}
     	
 }
 
@@ -105,11 +105,11 @@ int consultar()
 	}
 	
     while (!feof(file)) //Enquanto não se chegar no final do arquivo
-    {
+    	{
        conteudo == fgets(conteudo, 200, file);  // o 'fgets' lê os caracteres ou até o '\n'
        if (conteudo)  // Se foi possível ler
 	   printf(conteudo,consultar);
-    } 
+    	} 
     fclose(file);
     printf("\n\n\n"); //Pula linha
 
@@ -142,66 +142,66 @@ int deletar()
     scanf("%d", &deletarounao);
     
     system("cls");
-  }
-  if(deletarounao==1)
-  {
-  	deletar2();
-  }
+  	}
+  		if(deletarounao==1)
+ 		{
+  		deletar2();
+		}
   
-  if(deletarounao==2)
-  {
-  	return 0;
-  }
+  	if(deletarounao==2)
+  		{
+  		return 0;
+  		}
 
-  if(file == NULL)
-    printf("\nCPF não localizado -Retorne ao menu\n");
-    system("pause");
+  	if(file == NULL)
+    	printf("\nCPF não localizado -Retorne ao menu\n");
+    	system("pause");
 }
 
 int deletar2()
 {
-  char cpf[30];
+  	char cpf[30];
 
-  printf("Confirme o CPF do usuário a ser deletado: ");
-  scanf("%s",cpf);
+  	printf("Confirme o CPF do usuário a ser deletado: ");
+  	scanf("%s",cpf);
   
-  FILE *file;
-  file = fopen(cpf, "r"); 
+  	FILE *file;
+  	file = fopen(cpf, "r"); 
   
-  if(file)
-  {
-  printf("Usuário removido com sucesso!\n\n");
-  fclose(file);
+ 	 if(file)
+  		{
+  		printf("Usuário removido com sucesso!\n\n");
+  		fclose(file);
   	
-  remove(cpf);
-  }
-  if(file == NULL)
-  {
-  printf("\n\nCPF não localizado -Retorne ao menu\n");	
-  }
+  		remove(cpf);
+  		}
+  	if(file == NULL)
+  		{
+  		printf("\n\nCPF não localizado -Retorne ao menu\n");	
+  		}
 }
 
 int confirmasair()
 {
    int confirmasair=0;
    
-   printf("Tem certeza que deseja sair?\n\n");
-   printf("Aperte 1 - Sair | 2 - Voltar ao Menu");
-   printf("\n\nOpção: ");
+   	printf("Tem certeza que deseja sair?\n\n");
+   	printf("Aperte 1 - Sair | 2 - Voltar ao Menu");
+  	 printf("\n\nOpção: ");
    
    scanf("%d", &confirmasair);
    
    if (confirmasair==1)
-   {
-   	system("cls");
-   	printf("\n\nSaindo.. Até logo..");
-   	exit (0);
-   }
+   		{
+   		system("cls");
+   		printf("\n\nSaindo.. Até logo..");
+   		exit (0);
+   		}
    	
    if (confirmasair==2)
-   {
-    return 0;
-   }
+		{
+		return 0;
+   		}
 }
 
 
