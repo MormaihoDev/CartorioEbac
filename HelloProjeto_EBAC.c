@@ -1,4 +1,4 @@
-#include <stdio.h> //Biblioteca de cominucação com o usuário
+#include <stdio.h> //Biblioteca de comunicação com o usuário
 #include <locale.h> //Biblioteca de texto por região/idioma
 #include <stdlib.h> //Biblioteca de alocação de espaço em memória
 #include <string.h> //Bilioteca de Strings
@@ -207,55 +207,82 @@ int confirmasair()
 
 int main() //Função principal do projeto
 {   
-   int opcao=0; //Definição de variável
-   int repetir=1; //Definição da função para voltar
-   
-   for(repetir=1;repetir=1;) //Função para voltar do começo
-      {
+	setlocale(LC_ALL, "Portuguese");
+	int opcao=0; //Definição de variável
+	int repetir=1; //Definição da função para voltar
    	
-   	  system("cls"); //Zerar tela
+	char login[10] = "admin";
+	char comparalogin[10];
+	
+	char senhaentrar[10] = "senha";
+	char compara[10];
+	
    
-      setlocale(LC_ALL, "Portuguese"); //Definindo linguagem
+	printf("\t  Cartório de registros-Projeto EBAC\n");
+	printf("\t*****************************************\n");
+	printf("\t**                                     **\n");
+	printf("\t**        Digite seu login e senha     **\n\n");
+	printf("\t**      Login: ");
+	scanf("%s", comparalogin);
+	
+	printf("\t**      Senha: ");
+	scanf("%s", compara);
+
+    if (strcmp(login, comparalogin) == 0 && strcmp(senhaentrar, compara) == 0)
+    {
+   		for(repetir=1;repetir=1;) //Funçãoas para voltar do começo
+      	{
+   	
+   	  		system("cls"); //Zerar tela
    
-      printf("\t     ||| Olá Mundo! Olá curso! ||| \n\n\n"); //Titulo
-      printf("\t  Cartório de registros-Projeto EBAC\n"); //Inicio do menu
-      printf("\t -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- \n \n");
-      printf("\t       Escolha a opção do menu:\n");
-      printf("1 > Registrar \n");
-      printf("2 > Consultar \n");
-      printf("3 > Deletar nomes \n\n");
-      printf("4 > Aperte para sair.\n\n\n\n");
+      		setlocale(LC_ALL, "Portuguese"); //Definindo linguagem
+   
+      		printf("\t     ||| Olá Mundo! Olá curso! ||| \n\n\n"); //Titulo
+      		printf("\t  Cartório de registros-Projeto EBAC\n"); //Inicio do menu
+      		printf("\t -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- \n \n");
+      		printf("\t       Escolha a opção do menu:\n");
+      		printf("1 > Registrar \n");
+      		printf("2 > Consultar \n");
+      		printf("3 > Deletar nomes \n\n");
+      		printf("4 > Aperte para sair.\n\n\n\n");
       
-      printf("Opção: "); //Fim do Menu
+      		printf("Opção: "); //Fim do Menu
    
-      scanf("%d", &opcao); //Armazenar a escolha do usuário
+      		scanf("%d", &opcao); //Armazenar a escolha do usuário
    
-      system("cls"); //Inicio de nova tela com as opções abaixo
+      		system("cls"); //Inicio de nova tela com as opções abaixo
    
-      switch(opcao)  //Inicio das opções (Nota pessoal: função Switch, melhor nos casos de Menu's
-      {
-   	      case 1: //opções do menu
-          registrar();
-   	      break;
+      		switch(opcao)  //Inicio das opções (Nota pessoal: função Switch, melhor nos casos de Menu's
+      		{
+   	      		case 1: //opções do menu
+          		registrar();
+   	      		break;
    	   
-   	      case 2:
-   	      consultar();
-          break;
+   	      		case 2:
+   	      		consultar();
+          		break;
        
-          case 3:
-          deletar();
-	      break;	
+          		case 3:
+          		deletar();
+	      		break;	
 		  
-		  case 4:
-		  confirmasair();
-		  break;      
+		  		case 4:
+		  		confirmasair();
+		  		break;      
 	   
-	      default:
-	      printf("*Opção inválida; Favor definir uma opção válida no Menu-\n\n");
-	      system("pause"); //Pausa a tela
-	      break; //Evita possiveis erros de programação, "encerrando" a função.
+	      		default:
+	      		printf("*Opção inválida; Favor definir uma opção válida no Menu-\n\n");
+	      		system("pause"); //Pausa a tela
+	      		break; //Evita possiveis erros de programação, "encerrando" a função.
 	    	
-      } //fim da seleção
-   }
-   
+      		} //fim da seleção
+   		}
+   	}
+   	else
+   	printf("\tA senha esta incorreta !\n\n");
+   	printf("Tentar novamente...\n");
+	system("pause");
+	system("cls");
+	main (); 	
+
 }
